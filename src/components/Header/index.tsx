@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { AuthContext } from "../../contexts/AuthContext";
+
 import { User } from "../../pages/models/User";
 
 import {
@@ -17,6 +20,12 @@ interface HeaderProps {
 }
 
 export default function Header({ user }: HeaderProps) {
+  const { logout } = useContext(AuthContext);
+
+  function handleLogout() {
+    logout();
+  }
+
   return (
     <HeaderContainer>
       <WrapperLogo>
@@ -28,7 +37,7 @@ export default function Header({ user }: HeaderProps) {
         <UserInfo>
           Bem vindo, <strong>{user}!</strong>{" "}
         </UserInfo>
-        <ButtonLogout>
+        <ButtonLogout onClick={handleLogout}>
           <Image src="/shape.png" alt="Shape" width={5.5} height={14} />
           <Image
             src="/arrow-left.png"

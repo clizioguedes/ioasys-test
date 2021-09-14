@@ -1,6 +1,6 @@
 import Router from "next/router";
 import { useState, useEffect, createContext } from "react";
-import { setCookie, parseCookies } from "nookies";
+import { setCookie, parseCookies, destroyCookie } from "nookies";
 
 import { AxiosError, AxiosResponse } from "axios";
 
@@ -11,6 +11,7 @@ import { User, UserCrentials } from "../pages/models/User";
 type AuthContextType = {
   isAuthenticated: boolean;
   signIn: (data: UserCrentials) => Promise<AxiosResponse>;
+  logout: () => void;
 };
 
 export const AuthContext = createContext({} as AuthContextType);
@@ -57,8 +58,14 @@ export function AuthProvider({ children }) {
     return response;
   }
 
+  function logout() {
+    destroyCookie(undefined, "ioasys-books.token");
+    destroyCookie(undefined, "ioasys-books.name");
+    Router.push("/");
+  }
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, signIn }}>
+    <AuthContext.Provider value={{ isAuthenticated, signIn, logout }}>
       {children}
     </AuthContext.Provider>
   );
