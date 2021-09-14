@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
             content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes"
           />
 
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
