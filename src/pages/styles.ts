@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
 
   background-image: url("/bg-home.png");
   width: 100%;
@@ -67,7 +69,7 @@ export const ButtonBackPage = styled.button`
 
   margin: 4px;
 
-  background-color: transparent;
+  background: "transparent";
 
   cursor: pointer;
 
@@ -77,7 +79,9 @@ export const ButtonBackPage = styled.button`
   box-sizing: border-box;
 
   :hover {
-    background: rgba(51, 51, 51, 0.2);
+    background: ${(props) =>
+      props.disabled ? "transparent" : "rgba(51, 51, 51, 0.2)"};
+    cursor: ${(props) => (props.disabled ? "auto" : "pointer")};
   }
 `;
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
 import Header from "../components/Header";
-import Books from "./books";
+import Books from "../components/Books";
 import { Book } from "./models/Book";
 import { User } from "./models/User";
 
@@ -15,7 +15,7 @@ import {
   Image,
   ButtonNextPage,
   TextNumberPages,
-} from "../styles";
+} from "./styles";
 import { BookParamsRequest, getBooks } from "./api/books";
 
 interface HomeProps {
@@ -100,7 +100,7 @@ export default function Home({ user }: HomeProps) {
             </TextNumberPages>
             <ButtonNextPage
               onClick={handleBooksNextPage}
-              disabled={totalPages === page}
+              disabled={page === totalPages}
             >
               <Image
                 src="/chevron-right-shape.png"

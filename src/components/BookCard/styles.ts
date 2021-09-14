@@ -5,7 +5,7 @@ export const Container = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  width: 100%;
+  width: 300px;
   height: 160px;
 
   background: #ffffff;
@@ -14,8 +14,14 @@ export const Container = styled.div`
 
   & > div {
     margin-left: 15px;
-    padding-right: 10px;
+    padding-right: 5px;
   }
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+
+  cursor: pointer;
 `;
 
 export const ImageContent = styled.div`
@@ -27,16 +33,11 @@ export const ImageContent = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around;
-  align-items: center; */
 `;
 
-export const Title = styled.span`
+export const Title = styled.div`
   width: 100%;
   height: 20px;
-
-  text-overflow: ellipsis;
-  white-space: nowrap;
 
   font-weight: 600;
   font-size: 14px;
@@ -45,7 +46,7 @@ export const Title = styled.span`
   color: #333333;
 `;
 
-export const Authors = styled.span`
+export const Authors = styled.div`
   width: 100%;
   height: 20px;
 
@@ -62,10 +63,11 @@ export const InfoBook = styled.div`
   align-items: flex-start;
 
   margin-top: 20px;
+
+  width: 100%;
 `;
 
-export const InfoBookText = styled.span`
-  width: 100%;
+export const InfoBookText = styled.p`
   font-size: 12px;
   line-height: 20px;
   color: #999999;
