@@ -20,8 +20,6 @@ export const Container = styled.div`
   &:hover {
     filter: brightness(0.9);
   }
-
-  cursor: pointer;
 `;
 
 export const ImageContent = styled.div`
@@ -35,7 +33,7 @@ export const Content = styled.div`
   flex-direction: column;
 `;
 
-export const Title = styled.div`
+export const Title = styled.span`
   width: 100%;
   height: 20px;
 
@@ -44,6 +42,8 @@ export const Title = styled.div`
   line-height: 20px;
 
   color: #333333;
+
+  cursor: pointer;
 `;
 
 export const Authors = styled.div`

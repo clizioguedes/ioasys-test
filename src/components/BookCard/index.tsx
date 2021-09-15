@@ -30,41 +30,37 @@ export default function BookCard({ book }: BookCardProps) {
   }
 
   return (
-    <>
-      <Container onClick={handleOpenBookDetailModal}>
-        <ImageContent>
-          {book && book.imageUrl ? (
-            <Image
-              src={book.imageUrl}
-              alt="Capa do livro"
-              width={81}
-              height={122}
-              layout="fixed"
-            />
-          ) : (
-            <InfoBookSemImagem>Sem Imagem</InfoBookSemImagem>
-          )}
-        </ImageContent>
-        <Content>
-          <Title>{book.title}</Title>
-          <Authors>{book.authors[0]}</Authors>
+    <Container>
+      <ImageContent>
+        {book && book.imageUrl ? (
+          <Image
+            src={book.imageUrl}
+            alt="Capa do livro"
+            width={81}
+            height={122}
+            layout="fixed"
+          />
+        ) : (
+          <InfoBookSemImagem>Sem Imagem</InfoBookSemImagem>
+        )}
+      </ImageContent>
+      <Content>
+        <Title onClick={handleOpenBookDetailModal}>{book.title}</Title>
+        <Authors>{book.authors[0]}</Authors>
 
-          <InfoBook>
-            <InfoBookText>{book.pageCount} Páginas</InfoBookText>
-            <InfoBookText>Editora {book.publisher}</InfoBookText>
-            <InfoBookText>Publicado em {book.published}</InfoBookText>
-          </InfoBook>
-        </Content>
+        <InfoBook>
+          <InfoBookText>{book.pageCount} Páginas</InfoBookText>
+          <InfoBookText>Editora {book.publisher}</InfoBookText>
+          <InfoBookText>Publicado em {book.published}</InfoBookText>
+        </InfoBook>
         {showBookDetail && (
           <BookDetail
-            isOpen={true}
             book={book}
-            showBookDetail={showBookDetail}
-            setShowBookDetail={setShowBookDetail}
+            isOpen={showBookDetail}
             onRequestClose={handleCloseBookDetailModal}
           />
         )}
-      </Container>
-    </>
+      </Content>
+    </Container>
   );
 }
